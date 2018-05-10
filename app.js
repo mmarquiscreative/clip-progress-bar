@@ -12,15 +12,38 @@ var formApp = angular.module('formApp', [])
         
     
    
- var rotation = percentToDegree(chart.score);
-       var fix_rotation = rotation * 2;
- console.log(rotation);
-  document.querySelector('.circle .fill, .circle .mask.full, .circle .mask.half').style.transform = ('rotate(' + rotation + 'deg)');
+      var fillRotation = 0;
+       var halfRotation = 0;
+        var rotation = percentToDegree(chart.score);
        
-       document.querySelector('.circle .fill.fix').style.transform = ('rotate(' + fix_rotation + 'deg)');
+       if(rotation >= 180){
+           fillRotation = 180;
+           halfRotation = (rotation - 180);
+       } else {
+           fillRotation = rotation;
+       };
+
+       
+       
+
+       
+       console.log(rotation);
+       console.log(fillRotation);
+       console.log(halfRotation);
+       
+       
+  document.querySelector('.circle .fill').style.transform = ('rotate(' + fillRotation + 'deg)');
+       
+       // negative
+      //  document.querySelector('.mask.full').style.transform = ('rotate(' + rotation + 'deg)');
+       
+       // positive
+       document.querySelector('.mask.half').style.transform = ('rotate(' + halfRotation + 'deg)');
+       
+       //document.querySelector('.circle .fill.fix').style.transform = ('rotate(' + fix_rotation + 'deg)');
     };
     function percentToDegree(percentNum){
-        var returnDegree = (percentNum/100) * 180;
+        var returnDegree = (percentNum/100) * 360;
         return returnDegree;
     }
 } ])
