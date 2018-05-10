@@ -3,7 +3,7 @@
   width: 120px;
   height: 120px;
   background-color: #d6dadc;
-  border-radius: 100%;
+  border-radius: 0%;
 }
 .radial-progress .circle .mask,
 .radial-progress .circle .fill,
@@ -12,7 +12,7 @@
   width: 120px;
   height: 120px;
   position: absolute;
-  border-radius: 100%;
+  border-radius: 0%;
 }
 .radial-progress .circle .shadow {
   box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2) inset;
@@ -28,9 +28,8 @@
 }
 .radial-progress .circle .mask {
   clip: rect(0px, 120px, 120px, 60px);
-    border: solid red 1px;
 }
-.radial-progress .circle .mask .fill {
+.fill {
   clip: rect(0px, 60px, 120px, 0px);
   background-color: #97a71d;
         border: solid aqua 1px;
@@ -43,6 +42,21 @@
   margin-left: 15px;
   margin-top: 15px;
   background-color: #fbfbfb;
-  border-radius: 100%;
+  border-radius: 50%;
   box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.full {
+        border: solid red 1px;
+    transform: rotate(20deg);
+
+}
+
+.half {
+        border: solid blue 1px;
+        transform: rotate(-20deg);
+}
+
+.fill {
+    transform: rotate(200deg);
 }
