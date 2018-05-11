@@ -1,21 +1,20 @@
-
-
 var formApp = angular.module('formApp', [])
 
 .controller('chartController', ['$scope', function ($scope){
     var chart = this;
     
     chart.score = 0;
+    
     chart.testRotate = 180;
-   /*document.querySelector('.mask.full .fill').style.cssText = ('-webkit-transform: rotate(180deg); -ms-transform: rotate(180deg); transform: rotate(180);');*/
-       
+   
        
        chart.fillRotation = 'rotate(0deg)';
     chart.halfRotation= 'rotate(0deg)';
+    chart.fixRotation = 'rotate(0deg)';
+    chart.color = '#cf504e';
+    
    chart.rotateFill = function(){
 
-      var fillRotation = 0;
-       var halfRotation = 0;
         var rotation = percentToDegree(chart.score);
        
        if(rotation >= 180){
@@ -26,28 +25,36 @@ var formApp = angular.module('formApp', [])
            chart.halfRotation = 'rotate(0deg)';
        };
        
-
+       chart.fixRotation = 'rotate(' + (chart.rotation/2) + 'deg)';
+       
+       if(rotation <= 45){
+           chart.color = "#cf504e";
+       } else if (45 < rotation && rotation <= 90){
+           chart.color = "#cf445f";
+       } else if (90 < rotation && rotation <= 135){
+           chart.color = "#a93d59";
+        } else if (135 < rotation && rotation <= 180){
+           chart.color = "#9d4283";
+        } else if (180 < rotation && rotation <= 225){
+           chart.color = "#8a4f9c";
+        } else if (225 < rotation && rotation <= 270){
+           chart.color = "#7065ad";
+       } else if (270 < rotation && rotation <= 315) {
+           chart.color = "#747ada";
+        } else if (315 < rotation && rotation < 360){
+           chart.color = "#5b92f1";
+       } else if (rotation === 360){
+           chart.color = "#25aae1";
+        };
+           
+                
        
        console.log('base rotation: ' + rotation);
-       console.log('fill rotation: ' + fillRotation);
-       console.log('halfRotation: ' + halfRotation);
+       console.log('fill rotation: ' + chart.fillRotation);
+       console.log('halfRotation: ' + chart.halfRotation);
               console.log(document.querySelector('.fill').style);
 
        console.log(angular.element(document.querySelector('.mask.half'))[0].style);
-       
-       // positive
-       
-  // document.querySelector('.fill').style.cssText = ('-webkit-transform: rotate(' + fillRotation + 'deg); -ms-transform: rotate(' + fillRotation + 'deg); transform: rotate(' + fillRotation + ');');
-       
-       
-       // document.querySelector('.mask.half').style.cssText = ('-webkit-transform: rotate(' + halfRotation + 'deg); -ms-transform: rotate(' + halfRotation + 'deg);        transform: rotate(' + halfRotation + 'deg);');
-       
-       /*angular.element(document.querySelector('.mask.half'))[0].style.cssText = ('-webkit-transform: rotate(' + halfRotation + 'deg); -ms-transform: rotate(' + halfRotation + 'deg);        transform: rotate(' + halfRotation + 'deg);'); */
-       // negative
-      //  document.querySelector('.mask.full').style.transform = ('rotate(' + rotation + 'deg)');
-       
-       
-       //document.querySelector('.circle .fill.fix').style.transform = ('rotate(' + fix_rotation + 'deg)');
     };
     function percentToDegree(percentNum){
         var returnDegree = (percentNum/100) * 360;

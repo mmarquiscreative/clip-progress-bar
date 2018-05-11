@@ -27,11 +27,12 @@
     <div class="radial-progress">
 	<div class="circle">
 		<div class="mask full">
-			<div ng-style="{'transform': chart.fillRotation }" class="fill"></div>
+			<div ng-style="{'transform': chart.fillRotation, 'background-color': chart.color }" class="fill"></div>
 		</div>
-		<div ng-style="{'transform': chart.halfRotation }" class="mask half">
-			<div ng-style="{'transform': chart.fillRotation }" class="fill"></div>
-			<div class="fill fix"></div>
+		<div ng-style="{'transform': chart.halfRotation,}" class="mask half">
+		<div ng-style="{'transform': chart.fixRotation }" class="fill fix"></div>
+			<div ng-style="{'transform': chart.fillRotation,  'background-color': chart.color }" class="fill"></div>
+			
 		</div>
 		<div class="shadow"></div>
 	</div>

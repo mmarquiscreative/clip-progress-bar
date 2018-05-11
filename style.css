@@ -16,13 +16,7 @@
 .radial-progress .circle .shadow {
   box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2) inset;
 }
-.radial-progress .circle .mask,
-.radial-progress .circle .fill {
-  -webkit-backface-visibility: hidden;
-  transition: -webkit-transform 1s;
-  transition: -ms-transform 1s;
-  transition: transform 1s;
-}
+
 .radial-progress .circle .mask {
   clip: rect(0px, 120px, 120px, 60px);
 }
@@ -40,4 +34,11 @@
   border-radius: 50%;
   box-shadow: 6px 6px 10px rgba(0, 0, 0, 0.2);
 }
+.radial-progress .circle .mask,
+.radial-progress .circle .fill {
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: transform 1s, background-color 1s;
+  -ms-transition: transform 1s, background-color 1s;
+  transition: transform 1s, background-color 1s;
 
+}
