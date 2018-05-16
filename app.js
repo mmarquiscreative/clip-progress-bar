@@ -9,10 +9,13 @@ var formApp = angular.module('formApp', [])
    
        
        chart.fillRotation = 'rotate(0deg)';
+        chart.fixRotation = 'rotate(0deg)';
+        'rotate(0deg)';
     chart.halfRotation= 'rotate(0deg)';
-    chart.fixRotation = 'rotate(0deg)';
-    chart.color = '#cf504e';
+    chart.halfFixRotation = 'rotate(0deg)';
     
+    chart.color = '#cf504e';
+    chart.border = '"' + ("solid" + chart.color + "1px") + '"';
    chart.rotateFill = function(){
 
         var rotation = percentToDegree(chart.score);
@@ -23,6 +26,7 @@ var formApp = angular.module('formApp', [])
        } else {
            chart.fillRotation = 'rotate(' + rotation + 'deg)';
            chart.halfRotation = 'rotate(0deg)';
+           
        };
        
        chart.fixRotation = 'rotate(' + (chart.rotation/2) + 'deg)';

@@ -23,22 +23,28 @@
     <!-- <canvas id="piechart" width="400" height="400">
 </canvas> -->
 
-
+<!-- Circle Chart -->
     <div class="radial-progress">
 	<div class="circle">
 		<div class="mask full">
 			<div ng-style="{'transform': chart.fillRotation, 'background-color': chart.color }" class="fill"></div>
+			<div ng-style="{'background-color': 'red' }" class="fill fix"></div>
 		</div>
-		<div ng-style="{'transform': chart.halfRotation,}" class="mask half">
-		<div ng-style="{'transform': chart.fixRotation }" class="fill fix"></div>
+		<div ng-style="{'transform': chart.halfRotation, 'border': chart.border}" class="mask half">
 			<div ng-style="{'transform': chart.fillRotation,  'background-color': chart.color }" class="fill"></div>
-			
 		</div>
-		<div class="shadow"></div>
+		<div class="mask full">
+			<div ng-style="{'transform': chart.fillRotation, 'background-color': chart.color }" class="fill"></div>
+			<div ng-style="{'transform': chart.halfRotation }" class="mask half">
+			    <div ng-style="{'transform': chart.fillRotation,  'background-color': chart.color }" class="fill"></div>
+		    </div>
+		</div>
+        <div class="shadow"></div>
 	</div>
-	<rotate degrees="20"></rotate>
 	<div class="inset"></div>
 </div>
+<!-- END Circle Chart -->
+
 </div>
 </body>
 
