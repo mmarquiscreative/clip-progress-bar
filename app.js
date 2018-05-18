@@ -10,7 +10,6 @@ var formApp = angular.module('formApp', [])
        
        chart.fillRotation = 'rotate(0deg)';
         chart.fixRotation = 'rotate(0deg)';
-        'rotate(0deg)';
     chart.halfRotation= 'rotate(0deg)';
     chart.halfFixRotation = 'rotate(0deg)';
     
@@ -23,13 +22,14 @@ var formApp = angular.module('formApp', [])
        if(rotation >= 180){
            chart.fillRotation = 'rotate(' + 180 + 'deg)';
            chart.halfRotation = 'rotate(' + (rotation - 180) + 'deg)';
+           chart.fixRotation = 'rotate(' + (rotation/2) + 'deg)';
        } else {
            chart.fillRotation = 'rotate(' + rotation + 'deg)';
            chart.halfRotation = 'rotate(0deg)';
-           
+           chart.fixRotation = 'rotate(' + (rotation/2) + 'deg)';
        };
        
-       chart.fixRotation = 'rotate(' + (chart.rotation/2) + 'deg)';
+       
        
        if(rotation <= 45){
            chart.color = "#cf504e";
